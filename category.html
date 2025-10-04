@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ category | capitalize }} - Café Malouf</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <a href="/" class="back-btn">← Retour</a>
+    <h1>{{ category | capitalize }}</h1>
+  </header>
+
+  <main>
+    {% for item in items %}
+      <div class="item-card">
+        <div>
+          <h3>{{ item.name }}</h3>
+          {% if item.ingredients %}
+            <p class="desc">{{ item.ingredients }}</p>
+          {% elif item.desc %}
+            <p class="desc">{{ item.desc }}</p>
+          {% endif %}
+        </div>
+
+        <div class="price">
+          {% if item.price %}
+            <span>{{ item.price }}</span>
+          {% elif item.moy %}
+            <p>🟢 Moy: {{ item.moy }} DT | Maxi: {{ item.maxi }} DT</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </main>
+
+  <footer>
+    <p>🍹 Café Malouf — saveurs & vibes tunisiennes</p>
+  </footer>
+</body>
+</html>

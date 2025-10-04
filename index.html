@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu Café Malouf</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>☕ Menu Café Malouf</h1>
+    <p>Choisissez une catégorie :</p>
+  </header>
+
+  <main>
+    <div class="categories">
+      {% for cat in categories %}
+        <a href="{{ url_for('category', name=cat) }}" class="category-card">
+          {{ cat | capitalize }}
+        </a>
+      {% endfor %}
+    </div>
+  </main>
+
+  <footer>
+    <p>Scanné avec ❤️ chez Café Malouf</p>
+  </footer>
+</body>
+</html>
