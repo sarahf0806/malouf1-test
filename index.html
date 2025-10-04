@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu Café Malouf</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -13,12 +13,16 @@
   </header>
 
   <main>
-    <div class="categories">
-      {% for cat in categories %}
-        <a href="{{ url_for('category', name=cat) }}" class="category-card">
-          {{ cat | capitalize }}
-        </a>
-      {% endfor %}
+    <div class="categories" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+      <a href="petits-dejeuner.html" class="category-card">Petits Déjeuner</a>
+      <a href="viennoiseries-cafes.html" class="category-card">Viennoiseries & Cafés</a>
+      <a href="boissons-thes.html" class="category-card">Boissons & Thés</a>
+      <a href="milkshakes-cocktails-jus.html" class="category-card">Milkshakes, Cocktails & Jus</a>
+      <a href="gaufres.html" class="category-card">Gaufres</a>
+      <a href="crepes-bubbles.html" class="category-card">Crêpes & Bubbles</a>
+      <a href="sandwichs-supplements.html" class="category-card">Sandwichs & Supplements</a>
+      <a href="pizzas.html" class="category-card">Pizzas</a>
+      <a href="chichas.html" class="category-card">Chichas</a>
     </div>
   </main>
 
